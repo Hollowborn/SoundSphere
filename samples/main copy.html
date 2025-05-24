@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundSphere - Music Web App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main-content');
+
+    sidebar.classList.toggle('collapsed');
+    main.classList.toggle('expanded');
+  }
+</script>
+
+<body class="bg-dark text-white">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+    <div class="container-fluid">
+      <i class="bi bi-music-note-beamed"></i> 
+      <a class="navbar-brand" style="margin-left: 1.5rem;" href="#">SoundSphere</a>
+      <!-- Navbar Toggler -->
+        <button class="navbar-toggleable" type="button" onclick="toggleSidebar()">
+          
+        </button>
+    <div class="collapse navbar-collapse d-flex align-items-center" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav-item">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Discover</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">My Library</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Radio</a></li>
+      </ul>
+      <form class="d-flex ms-3" role="search">
+        <input class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <img src="images/icon.png" alt="icon" class="user-icon">
+    </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-2 d-md-block bg-dark text-white border-end rounded-right">
+        <ul class="nav flex-column p-3">
+          <li class="nav-item"><a class="nav-link text-white" href="main.html"> <i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="artist.html"><i class="bi bi-person-fill me-2"></i>Artists</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="login.html"><i class="bi bi-file-earmark-music me-2"></i>Albums</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="register.html"><i class="bi bi-list-ul me-2"></i>Playlists</a></li>
+         
+        </ul>
+      </nav>
+
+      <!-- Main content -->
+      <main id="main-content" class="col-md-10 ms-sm-auto px-md-4 overflow-auto vh-100">
+        <h2 class="mb-3 mt-3"><i class="bi bi-person-fill"></i> Artist of the Day</h2>
+        <div class="d-flex align-items-center bg-dark rounded p-3 mb-5">
+          <img src="images/artist/bruno.jpg" alt="Artist image" class="img-thumbnail me-3 bg-dark" style="max-width: 200px; border-radius: 50%;">
+          <div>
+            <h3 class="text-white">Bruno Mars</h3>
+            <p>Award-winning artist known for his retro showmanship, funk-pop sound, and chart-topping hits.</p>
+            <button class="btn btn-danger me-2">Play</button>
+            <button class="btn btn-outline-light"><i class="bi bi-plus-circle"></i> Add to Library</button>
+          </div>
+        </div>
+
+      
+          <h4 class="text-white mb-3">Popular Songs</h4>
+          <!-- Used to allow the music to go horizontally -->
+          <div class="d-flex overflow-auto py-3">
+
+            <div class="card-music" data-title="24K Magic" data-artist="Bruno Mars" data-duration="3:45" >
+              <div class="album-wrapper">
+                <img src="images/album/Bruno Mars/24k.png" alt="24K Magic Album">
+                <i class="bi bi-play-circle-fill play-overlay"></i>
+              </div>
+              <p class="mt-2">24K Magic</p>
+              <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+            </div>
+            
+            <div class="card-music" data-title="Just the Way You Are" data-artist="Bruno Mars" data-duration="3:45">
+              <div class="album-wrapper">
+                <img src="images/album/Bruno Mars/doowoops.png" alt="Doo-Wops & Hooligans Album">
+                <i class="bi bi-play-circle-fill play-overlay"></i>
+              </div>
+              <p class="mt-2">Just the Way You Are</p>
+              <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+            </div>
+            
+            <div class="card-music" data-title="Leave The Door Open" data-artist="Bruno Mars" data-duration="3:45">
+              <div class="album-wrapper">
+                <img src="images/album/Bruno Mars/silksonic.png" alt="An Evening with Silk Sonic">
+                <i class="bi bi-play-circle-fill play-overlay"></i>
+              </div>
+              <p class="mt-2">Leave The Door Open</p>
+              <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars, Anderson .Paak</p>
+            </div>
+            
+            <div class="card-music" data-title="Locked Out of Heaven" data-artist="Bruno Mars" data-duration="3:45" data-src="audio/lockedout.mp3">
+              <div class="album-wrapper">
+                <img src="images/album/Bruno Mars/unorthodox.png" alt="Unorthodox Jukebox Album">
+                <i class="bi bi-play-circle-fill play-overlay"></i>
+              </div>
+              <p class="mt-2">Locked Out of Heaven</p>
+              <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+            </div>
+            
+          </div>
+            <!-- Add more cards as needed -->
+        <h5 class="mb-3">Local Artists</h5>
+        <!-- Artists -->
+        <div class="d-flex flex-row flex-wrap gap-3">
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/unique.jpg" alt="artist">
+            <p>Unique Salonga</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/rivermaya.webp" alt="artist">
+            <p>Rivermaya</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/spongecola.jpg" alt="artist">
+            <p>Spongecola</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/kitchie.jpg" alt="artist">
+            <p>Kitchie Nadal</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/hale.jpg" alt="artist">
+            <p>Hale</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/sugarfree.jpg" alt="artist">
+            <p>Sugarfree</p>
+          </div>
+        </div>
+
+        <div class="d-flex overflow-auto py-3">
+          <div class="card-artist">
+            <img src="images/artist/bruno.jpg" alt="artist">
+            <p>Bruno Mars</p>
+          </div>
+        </div>
+        </div>
+       
+      </main>
+    </div>
+  </div>
+
+  <!-- Music Player Footer -->
+  <!-- <footer id="music-player" class="bg-dark border-top border-secondary text-white fixed-bottom py-2 px-3 d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <i class="bi bi-music-note me-2"></i>
+      <div>
+        <img src="" alt="">
+        <div id="player-title" class="fw-bold">Treasure</div>
+        <div id="player-artist" class="" style="font-size: 0.9rem;">Bruno Mars</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <span id="current-time" class="me-2">0:00</span>
+      <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-skip-backward-fill"></i></button>
+      <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-play-fill"></i></button>
+      <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-skip-forward-fill"></i></button>
+      <span id="song-duration">3:45</span>
+    </div>
+    <audio id="audio-player" src="" preload="metadata"></audio>
+  </footer> -->
+
+  <footer class="bg-dark text-white fixed-bottom px-3 py-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Album Art and Song Info -->
+      <div class="d-flex align-items-center">
+        <img src="images/album/Bruno Mars/silksonic.png" alt="Album Art" style="height: 40px; width: 40px; object-fit: cover; border-radius: 4px; margin-right: 10px;">
+        <div>
+        <div id="player-title" class="fw-bold">Treasure</div>
+        <div id="player-artist" class="" style="font-size: 0.9rem;">Bruno Mars</div>
+        </div>
+      </div>
+  
+      <!-- Controls -->
+      <div class="d-flex align-items-center justify-content-center">
+        <span id="current-time" class="me-2">0:00</span>
+        <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-skip-backward-fill"></i></button>
+        <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-play-fill"></i></button>
+        <button class="btn btn-sm btn-outline-light me-2"><i class="bi bi-skip-forward-fill"></i></button>
+        <span id="song-duration">3:45</span>
+      </div>
+      <audio id="audio-player" src="" preload="metadata"></audio>
+    </div>
+  
+    <!-- Progress Bar -->
+    <div class="progress mt-2" style="height: 4px;">
+      <div class="progress-bar bg-danger" role="progressbar" style="width: 30%"></div>
+    </div>
+  </footer>
+  
+  
+  <script src="js/currentPage.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/play.js"></script>
+</body>
+</html>

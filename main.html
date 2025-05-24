@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundSphere - Music Web App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main-content');
+
+    sidebar.classList.toggle('collapsed');
+    main.classList.toggle('expanded');
+  }
+</script>
+
+  <body class="text-white" style="background-color: black;">
+
+    <!-- Navbar -->
+    
+        <!-- Main content -->
+        <main id="main-content" class="col-md-12 ms-sm-auto px-md-4 overflow-auto vh bg-dark">
+          <h2 class="mb-3 mt-3"><i class="bi bi-person-fill"></i> Artist of the Day</h2>
+          <div class="d-flex align-items-center bg-dark rounded p-3 mb-5">
+            <img src="images/artist/bruno.jpg" alt="Artist image" class="img-thumbnail me-3 bg-dark" style="max-width: 200px; border-radius: 50%;">
+            <div>
+              <h3 class="text-white">Bruno Mars</h3>
+              <p>Award-winning artist known for his retro showmanship, funk-pop sound, and chart-topping hits.</p>
+              <button class="btn btn-danger me-2" id="play-artist" onclick="playSelectedSong(0, 'bruno')"><i class="bi bi-play-circle"></i> Play</button>
+              <button class="btn btn-outline-light"><i class="bi bi-plus-circle"></i> Add to Library</button>
+            </div>
+          </div>
+
+        
+            <h4 class="text-white mb-3">Popular Songs</h4>
+            <!-- Used to allow the music to go horizontally -->
+           
+    
+          <div class="d-flex overflow-auto py-3" id="musicContainer">
+              <div class="card-music" onclick="playSelectedSong(0, 'bruno')" style="margin-left: 2rem;">
+                <div class="album-wrapper ml-5">
+                  <img src="images/album/Bruno Mars/24k.png" alt="24K Magic Album">
+                  <i class="bi bi-play-circle-fill play-overlay"></i>
+                </div>
+                <p class="mt-2">24K Magic</p>
+                <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+              </div>
+              
+              <div class="card-music" onclick="playSelectedSong(1, 'bruno')">
+                <div class="album-wrapper">
+                  <img src="images/album/Bruno Mars/doowoops.png" alt="Doo-Wops & Hooligans Album">
+                  <i class="bi bi-play-circle-fill play-overlay"></i>
+                </div>
+                <p class="mt-2">Just the Way You Are</p>
+                <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+              </div>
+              
+              <div class="card-music" onclick="playSelectedSong(2, 'bruno')">
+              <div class="album-wrapper">
+                  <img src="images/album/Bruno Mars/silksonic.png" alt="An Evening with Silk Sonic">
+                  <i class="bi bi-play-circle-fill play-overlay"></i>
+                </div>
+                <p class="mt-2">Leave The Door Open</p>
+                <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars, Anderson .Paak</p>
+              </div>
+              
+               <div class="card-music" onclick="playSelectedSong(3, 'bruno')">
+                <div class="album-wrapper">
+                  <img src="images/album/Bruno Mars/unorthodox.png" alt="Unorthodox Jukebox Album">
+                  <i class="bi bi-play-circle-fill play-overlay"></i>
+                </div>
+                <p class="mt-2">Locked Out of Heaven</p>
+                <p style="color: #CCCCCC; font-size: 14px;">Bruno Mars</p>
+              </div>
+              </div>
+
+             <div id="music-cards-container" class="music-cards-grid"></div>
+            
+              <!-- Add more cards as needed -->
+          <h5 class="mb-3">Local Artists</h5>
+          <!-- Artists -->
+          <div class="d-flex flex-row flex-wrap gap-3">
+            <a class="card-artist" href="artist-details.html?artist=unique">
+              <img src="images/artist/unique.jpg" alt="artist">
+              <p>Unique Salonga</p>
+            </a>
+            <a class="card-artist" href="artist-details.html?artist=rivermaya">
+              <img src="images/artist/rivermaya.webp" alt="artist">
+              <p>Rivermaya</p>
+            </a>
+            <a class="card-artist" href="artist-details.html?artist=spongecola">
+              <img src="images/artist/spongecola.jpg" alt="artist">
+              <p>Sponge Cola</p>
+            </a>
+            <a class="card-artist" href="artist-details.html?artist=kitchie">
+              <img src="images/artist/kitchie.jpg" alt="artist">
+              <p>Kitchie Nadal</p>
+            </a>
+            <a class="card-artist" href="artist-details.html?artist=hale">
+              <img src="images/artist/hale.jpg" alt="artist">
+              <p>Hale</p>
+            </a>
+            <a class="card-artist" href="artist-details.html?artist=sugarfree">
+              <img src="images/artist/sugarfree.jpg" alt="artist">
+              <p>Sugarfree</p>
+            </a>
+          
+          </div>
+          <div class="empty-space"></div>
+        </main>
+      </div>
+    </div>
+    <script src="js/artistData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/currentPage.js"></script>
+    <script src="js/play1.js"></script>
+  </body>
+</html>

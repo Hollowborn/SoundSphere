@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="music-cards-container"></div>
+
+</body>
+<script>
+const artistsData = {
+  bruno: {
+    name: "Bruno Mars",
+    songs: [
+      { title: "24K Magic", src: "/audio/Bruno Mars - 24K Magic.mp3", image: "images/album/Bruno Mars/24k.png",  artist: "Bruno Mars"},
+      { title: "Just the Way You Are", src: "/audio/Bruno Mars - Just the Way You Are.mp3", image: "images/album/Bruno Mars/doowoops.png",  artist: "Bruno Mars" },
+      { title: "Locked Out of Heaven", src: "/audio/lockedout.mp3", image: "/images/albums/unorthodox.jpg",  artist: "Bruno Mars" },
+    ],
+  }
+};
+
+function createMusicCard(song) {
+  const card = document.createElement("div");
+  card.className = "music-card";
+  card.innerHTML = `
+    <img src="${song.image}" alt="${song.title}" />
+    <h4>${song.title}</h4>
+    <p>${song.artist}</p>
+  `;
+  return card;
+}
+
+const container = document.getElementById("music-cards-container");
+
+Object.values(artistsData).forEach(artist => {
+  artist.songs.forEach(song => {
+    const card = createMusicCard(song);
+    container.appendChild(card);
+  });
+});
+</script>
+</html>

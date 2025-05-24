@@ -1,0 +1,129 @@
+ const songs = [
+  // Bruno Mars
+  {
+    title: "24K Magic",
+    artist: "Bruno Mars",
+    image: "/images/album/Bruno Mars/24k.png",
+    src: "/audio/Bruno Mars - 24K Magic.mp3"
+  },
+  {
+    title: "Just the Way You Are",
+    artist: "Bruno Mars",
+    image: "../images/album/Bruno Mars/doowoops.png",
+    src: "/audio/Bruno Mars - Just the Way You Are.mp3"
+  },
+  {
+    title: "Locked Out of Heaven",
+    artist: "Bruno Mars",
+    image: "/images/album/Bruno Mars/unorthodox.png",
+    src: "/audio/lockedout.mp3"
+  },
+
+  // Unique Salonga
+  {
+    title: "Midnight Sky",
+    artist: "Unique Salonga",
+    image: "/images/album/Unique/grandma.png",
+    src: "/audio/Unique Salonga - Midnight Sky.mp3"
+  },
+  {
+    title: "Mga Katulad Mo",
+    artist: "Unique Salonga",
+    image: "/images/album/Unique/pangalan.png",
+    src: "/audio/Unique Salonga - Mga Katulad Mo.mp3"
+  },
+  {
+    title: "Daisy",
+    artist: "Unique Salonga",
+    image: "/images/album/Unique/daisy.png",
+    src: "/audio/Unique Salonga - Daisy.mp3"
+  },
+
+  // Rivermaya
+  {
+    title: "Umaaraw, Umuulan",
+    artist: "Rivermaya",
+    image: "/images/album/Rivermaya/tuloy.jpg",
+    src: "/audio/Rivermaya - Umaaraw, Umuulan.mp3"
+  },
+  {
+    title: "Balisong",
+    artist: "Rivermaya",
+    image: "/images/album/Rivermaya/greatest.png",
+    src: "/audio/Rivermaya - Balisong.mp3"
+  },
+  {
+    title: "Kisapmata",
+    artist: "Rivermaya",
+    image: "/images/album/Rivermaya/rivermaya.png",
+    src: "/audio/Rivermaya - Kisapmata.mp3"
+  },
+
+  // Sponge Cola
+  {
+    title: "Pasubali",
+    artist: "Sponge Cola",
+    image: "/images/album/Spongecola/palabastransit.png",
+    src: "/audio/Sponge Cola - Pasubali.mp3"
+  },
+  {
+    title: "Kay Tagal Kitang Hinintay",
+    artist: "Sponge Cola",
+    image: "/images/album/Spongecola/araw.jpg",
+    src: "/audio/Sponge Cola - Kay Tagal Kitang Hinintay.mp3"
+  },
+  {
+    title: "Di Na Mababawi",
+    artist: "Sponge Cola",
+    image: "/images/album/Spongecola/sponge.jpg",
+    src: "/audio/Sponge Cola - Di Na Mababawi.mp3"
+  },
+
+  // Kitchie Nadal
+  {
+    title: "Same Ground",
+    artist: "Kitchie Nadal",
+    image: "/images/album/Kitchie/kitchie.png",
+    src: "/audio/Kitchie Nadal - Same Ground.mp3"
+  },
+  {
+    title: "Huwag Na Huwag Mong Sasabihin",
+    artist: "Kitchie Nadal",
+    image: "/images/album/Kitchie/love.png",
+    src: "/audio/Kitchie Nadal - Huwag Na Huwag Mong Sasabihin.mp3"
+  },
+
+  // Hale
+  {
+    title: "Kung Wala Ka",
+    artist: "Hale",
+    image: "/images/album/Hale/hale.png",
+    src: "/audio/Hale - Kung Wala Ka.mp3"
+  },
+  {
+    title: "The Day You Said Goodnight",
+    artist: "Hale",
+    image: "/images/album/Hale/twilight.png",
+    src: "/audio/Hale - The Day You Said Goodnight.mp3"
+  },
+
+  // Sugarfree
+  {
+    title: "Burnout",
+    artist: "Sugarfree",
+    image: "/images/album/sugarfree/sawakas.png",
+    src: "/audio/Sugarfree - Burnout.mp3"
+  },
+  {
+    title: "Prom",
+    artist: "Sugarfree",
+    image: "/images/album/sugarfree/drama.png",
+    src: "/audio/Sugarfree - Prom.mp3"
+  },
+  {
+    title: "Kung Ayaw Mo Na Sa Akin",
+    artist: "Sugarfree",
+    image: "/images/album/sugarfree/tala-arawan/Folder.png",
+    src: "/audio/Sugarfree - Kung Ayaw Mo Na Sa Akin.mp3"
+  }
+];

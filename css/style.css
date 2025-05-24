@@ -1,0 +1,635 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@font-face {
+  font-family: 'SuperCorn';
+  src: url('../font/himpun.otf');
+  
+}
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.2s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+  color: #DC3545 !important;
+}
+
+.bi-music-note-beamed{
+  transition: transform 0.3s ease;
+}
+.user-icon{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin: 1rem;
+  align-self: right;
+}
+
+/* Sidebar */
+#sidebar {
+  background-color: #06202B;
+  border-right: #fff;
+}
+#sidebar .nav-link.active {
+  background-color: #DC3545;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+#sidebar .nav-link:hover {
+  background-color: #DC3545;
+  color: #F5EEDD !important;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+
+/* dropdown item  */
+.dropdown-menu {
+  background-color: #06202B; /* Match sidebar background */
+  border: none;
+}
+/* Target dropdown items specifically within your navbar */
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #DC3545; /* Highlight color */
+  color: #fff; /* Text color */
+  border-radius: 4px; /* Optional: Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+.dropdown-item:hover {
+  background-color: #DC3545; /* Highlight color */
+  color: #fff;
+}
+/* Artist Section */
+#artist-of-day img {
+  border-radius: 10px;
+}
+#navbarNav{
+  align-items: center;
+}
+.btn-secondary{
+  background-color: #DC3545;
+}
+/* Song Cards */
+.card.text-bg-dark {
+  min-width: 150px;
+  text-align: center;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+.card.text-bg-dark:hover {
+  transform: scale(1.05);
+  background-color: #077A7D;
+  color: #F5EEDD;
+}
+
+/* Music Player */
+#music-player {
+  background-color: #06202B;
+  font-size: 0.9rem;
+}
+
+/* Scrollbar for horizontal song list */
+.overflow-auto::-webkit-scrollbar {
+  height: 8px;
+}
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #DC3545;
+  border-radius: 4px;
+}
+/* For sidebar functionality */
+#sidebar {
+  transition: all 0.3s;
+}
+
+#sidebar.collapsed {
+  margin-left: -220px;
+  width: 0;
+  overflow: hidden;
+}
+
+#main-content {
+  transition: all 0.3s;
+}
+
+#main-content.expanded {
+  width: 100%;
+  margin-left: 0;
+}
+/* For Artist Cards */
+.card-artist{
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+  border-radius: 0.5rem;
+
+  
+}
+.card-artist img{
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  margin-top: 10%;
+  margin: auto;
+}
+.card-artist img:hover{
+  background-color: #333;
+}
+.card-artist p{
+  margin-top: 2%;
+  font-weight: 500;
+  margin: auto;
+}
+
+.card-artist:hover{
+  background-color: #333;
+}
+/* Text for the song cards */
+
+.card-music {
+  height: 14rem;
+  width: 10rem;
+  margin-right: 1rem;
+  color: #fff;
+  border-radius: 10%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.card-music:hover {
+  background-color: #333;
+  transform: scale(1.1); /* Slightly increase the size */
+  background-color: #444; /* Change background color */
+  opacity: 0.9; 
+}
+.card-artist:hover, .card-music:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+}
+.card-music .album-wrapper {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 10%;
+}
+
+.card-music img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.3s ease;
+}
+.card-artist img, .card-music img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-artist:hover img, .card-music:hover img {
+  transform: scale(1.1); /* Slightly zoom in the image */
+  opacity: 0.8; /* Reduce image opacity */
+}
+
+/* Dark overlay on hover */
+.card-music .album-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  border-radius: 10%;
+}
+
+.card-music:hover .album-wrapper::after {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Play icon centered */
+.card-music .play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  
+}
+
+.card-music:hover .play-overlay {
+  opacity: 1;
+}
+
+.card-music p {
+  margin: 0.2rem 0;
+  width: 100%;
+  padding-left: 5%;
+  font-size: 0.9rem;
+  line-height: 0.8;
+}
+
+.card-music .views {
+  font-size: 0.75rem;
+  color: #aaa;
+  padding-left: 5%;
+}
+
+/* Change the bg */
+.bg-dark{
+  background-color: black;
+}
+/* For the placeholder */
+::placeholder {
+  color: #aaa;
+  opacity: 1; /* Firefox */
+}
+
+.alert {
+  background-color: #DC3545; /* Match your theme's highlight color */
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.alert .btn-close {
+  filter: invert(1); /* Make the close button white */
+}
+/* Form Inputs */
+form .form-control {
+  background-color: #06202B; /* Match sidebar background */
+  color: #fff;
+  border: 1px solid #DC3545;
+}
+
+form .form-control:focus {
+  background-color: #06202B;
+  color: #fff;
+  border-color: #DC3545;
+  box-shadow: none;
+}
+
+/* Buttons */
+form .btn-danger {
+  background-color: #DC3545;
+  border: none;
+}
+
+form .btn-danger:hover {
+  background-color: #A71D2A;
+}
+
+/* Links */
+form a {
+  color: #DC3545;
+  text-decoration: none;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
+
+/* For the artist and album */
+/* Card Styling */
+.card {
+  background-color: #06202B; /* Match sidebar background */
+  border: 1px solid #DC3545;
+}
+
+.card .card-title {
+  color: #fff;
+}
+
+.card .card-text {
+  color: #CCCCCC;
+}
+
+.card .btn-danger {
+  background-color: #DC3545;
+  border: none;
+}
+
+.card .btn-danger:hover {
+  background-color: #A71D2A;
+}
+
+/* Details styles */
+/* List Group Styling */
+.list-group-item {
+  background-color: #06202B;
+  color: #fff;
+  border: none;
+}
+
+.list-group-item:hover {
+  background-color: #DC3545;
+  color: #fff;
+}
+
+/* Card Styling */
+.card {
+  background-color: #06202B; /* Match sidebar background */
+  border: 1px solid #DC3545;
+}
+
+.card .card-title {
+  color: #fff;
+}
+
+.card .btn-danger {
+  background-color: #DC3545;
+  border: none;
+}
+
+.card .btn-danger:hover {
+  background-color: #A71D2A;
+}
+/* For card artist text styling*/
+.card-artist{
+  text-decoration: none;
+   transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+.card-artist a{
+  text-decoration: none;
+}
+.card-artist p{
+  text-decoration: none;
+  color: #fff;
+}
+.card-artist:hover {
+  transform: scale(1.1); /* Slightly increase the size */
+  background-color: #444; /* Change background color */
+  opacity: 0.9; /* Slightly reduce opacity */
+}
+
+/* For overflow style */
+/* Horizontal scrolling for artist cards */
+.d-flex.overflow-auto {
+  gap: 1rem; /* Add spacing between cards */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scrollbar-width: thin; /* For Firefox */
+}
+
+.d-flex.overflow-auto::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+.d-flex.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #DC3545; /* Match theme color */
+  border-radius: 4px;
+}
+.d-flex.overflow-auto::-webkit-scrollbar-track {
+  background: #06202B; /* Match sidebar background */
+}
+
+input:focus {
+  border-color: #dc3545 !important; /* Bootstrap's danger color */
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* For artist images on artist details */
+#artist-songs .card {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#artist-songs .card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  background-color: #333; /* Darken the background */
+}
+
+#artist-songs .card-footer button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#artist-songs .card-footer button:hover {
+  background-color: #DC3545; /* Match your theme's highlight color */
+  color: #fff;
+}
+
+.col .card-music{
+  height: 10rem;
+}
+
+.empty-space {
+  text-align: center;
+  height: 5rem;
+  margin-top: 20%;
+  color: #fff;
+}
+.music-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.music-card {
+  background-color: #06202B;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.music-card:hover {
+  transform: scale(1.03);
+}
+
+.music-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.music-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 122, 125, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.music-thumb:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-overlay i {
+  font-size: 2.5rem;
+  color: #F5EEDD;
+}
+
+.music-info {
+  padding: 0.5rem 1rem 1rem;
+  color: #F5EEDD;
+}
+
+.music-info h4 {
+  margin: 0.3rem 0 0.2rem;
+  font-size: 1rem;
+}
+
+.music-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #7AE2CF;
+}
+#album-cover:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);
+}
+
+/* For modal styling bg blurring */
+#songDetailsModal .modal-content {
+  backdrop-filter: blur(10px);
+  color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+/* For modal blurring */
+.modal-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.modal-content .modal-body,
+.modal-content .modal-header {
+  position: relative;
+  z-index: 2;
+}
+/* Login Page Styling */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slightly enlarge the card on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); Add a deeper shadow
+}
+
+form .form-control {
+  background-color: #1a1a1a; /* Match the dark theme */
+  color: #fff;
+  border: 1px solid #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form .form-control:focus {
+  border-color: #DC3545; /* Highlight color */
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5); /* Subtle glow effect */
+}
+
+form .btn-danger {
+  background-color: #DC3545;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form .btn-danger:hover {
+  background-color: #A71D2A; /* Darker red on hover */
+  transform: scale(1.03); /* Slightly enlarge the button */
+}
+
+form a {
+  color: #DC3545;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+form a:hover {
+  color: #A71D2A; /* Darker red on hover */
+  text-decoration: underline;
+}
+
+/* For the hover effect of profile */
+.dropdown img:hover{
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);
+}
+
+.navbar-toggleable:hover{
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);
+  color: #DC3545;
+}
+
+.brand-letter {
+  display: inline-block;
+  transition: transform 0.1s ease, color 0.1s ease;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.brand-letter:hover {
+  color: #DC3545; /* change this to your accent color */
+  transform: scale(1.3);
+}
+#tone{
+  color: #DC3545;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.1s ease, color 0.1s ease;
+
+}
+#tone:hover {
+  color: #fff; /* change this to your accent color */
+  transform: scale(1.3);
+}
+/* .bi-list:hover{
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);
+} */
+

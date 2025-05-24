@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Album Details - SoundSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  border-secondary shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand ml-5"  href="layout.html"><i class="fa-solid fa-music fa-beat" style="--fa-animation-duration: 2s;"></i>&nbsp;&nbsp;
+            <span class="brand-letter" id="tone">S</span>
+            <span class="brand-letter" id="tone">o</span>
+            <span class="brand-letter" id="tone">u</span>
+            <span class="brand-letter" id="tone">n</span>
+            <span class="brand-letter" id="tone">d</span>
+            <span class="brand-letter">S</span>
+            <span class="brand-letter">p</span>
+            <span class="brand-letter">h</span>
+            <span class="brand-letter">e</span>
+            <span class="brand-letter">r</span>
+            <span class="brand-letter">e</span>
+      </a>
+      <button class="navbar-toggleable " type="button" onclick="toggleSidebar()" style="background: transparent; border: none;" ><i class="bi bi-list" style="color: white;"></i></button>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-xl-flex" id="nav-item">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Discover</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#" onclick="showAlert('Library')">My Library</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#" onclick="showAlert('Radio')">Radio</a></li>
+      </ul>
+        <form class="d-flex ms-3" role="search">
+          <input class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="dropdown">
+          <img src="images/icon.png" alt="icon" class="user-icon dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <ul class="dropdown-menu dropdown-menu-end bg-dark text-white" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item text-white"  onclick="showAlert('Profile')">Profile</a></li>
+            <li><a class="dropdown-item text-white" onclick="showAlert('Settings')">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-white" href="login.html">Logout</a></li>
+          </ul>
+        </div>
+        <div id="alert-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <!-- Alert will be dynamically inserted here -->
+          </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="images/album/Bruno Mars/24k.png" alt="24K Magic Album" class="img-fluid rounded">
+      </div>
+      <div class="col-md-8">
+        <h2>24K Magic</h2>
+        <p class="text-muted">Bruno Mars</p>
+        <p>Released: November 18, 2016</p>
+        <button class="btn btn-danger me-2" onclick="showAlert('Album Play')"><i class="bi bi-play-circle"></i> Play Album</button>
+        <button class="btn btn-outline-light" onclick="showAlert('Add to Library')"><i class="bi bi-plus-circle"></i> Add to Library</button>
+      </div>
+    </div>
+
+    <hr class="my-4 text-secondary">
+
+    <h4>Tracklist</h4>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item bg-dark text-white">1. 24K Magic</li>
+      <li class="list-group-item bg-dark text-white">2. Chunky</li>
+      <li class="list-group-item bg-dark text-white">3. Perm</li>
+      <li class="list-group-item bg-dark text-white">4. That's What I Like</li>
+      <li class="list-group-item bg-dark text-white">5. Versace on the Floor</li>
+      <li class="list-group-item bg-dark text-white">6. Straight Up & Down</li>
+      <li class="list-group-item bg-dark text-white">7. Calling All My Lovelies</li>
+      <li class="list-group-item bg-dark text-white">8. Finesse</li>
+      <li class="list-group-item bg-dark text-white">9. Too Good to Say Goodbye</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/currentPage.js"></script>
+</body>
+
+</html>

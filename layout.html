@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundSphere - Music Web App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-dark text-white">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand ml-5"  href="layout.html" >  <i class="fa-solid fa-music fa-beat" style="--fa-animation-duration: 2s;"></i>&nbsp;&nbsp;
+            <span class="brand-letter" id="tone">S</span>
+            <span class="brand-letter" id="tone">o</span>
+            <span class="brand-letter" id="tone">u</span>
+            <span class="brand-letter" id="tone">n</span>
+            <span class="brand-letter" id="tone">d</span>
+            <span class="brand-letter">S</span>
+            <span class="brand-letter">p</span>
+            <span class="brand-letter">h</span>
+            <span class="brand-letter">e</span>
+            <span class="brand-letter">r</span>
+            <span class="brand-letter">e</span>
+      </a>
+      <button class="navbar-toggleable " type="button" onclick="toggleSidebar()" style="background: transparent; border: none;" ><i class="bi bi-list" style="color: white;"></i></button>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-xl-flex" id="nav-item">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Discover</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#" onclick="showAlert('Library')">My Library</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#" onclick="showAlert('Radio')">Radio</a></li>
+      </ul>
+        <form class="d-flex ms-3" role="search">
+          <input class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="dropdown">
+          <img src="images/icon.png" alt="icon" class="user-icon dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <ul class="dropdown-menu dropdown-menu-end bg-dark text-white" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item text-white"  onclick="showAlert('Profile')">Profile</a></li>
+            <li><a class="dropdown-item text-white" onclick="showAlert('Settings')">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-white" href="login.html">Logout</a></li>
+          </ul>
+        </div>
+        <div id="alert-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <!-- Alert will be dynamically inserted here -->
+          </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-2 d-md-block bg-dark text-white rounded-right shadow-lg">
+        <ul class="nav flex-column p-3" id="nav-bar-item">
+          <li class="nav-item"><a class="nav-link text-white active" href="main.html"> <i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="artist.html"><i class="bi bi-person-fill me-2"></i>Artists</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="album.html"><i class="bi bi-file-earmark-music me-2"></i>Albums</a></li>
+          <!-- <li class="nav-item"><a class="nav-link text-white" href="#"><i class="bi bi-list-ul me-2"></i>Playlists</a></li> -->
+        </ul>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main id="main-content" class="col-md-10 ms-sm-auto px-md-4 overflow-auto vh-100">
+        <!-- Content will be dynamically loaded here -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Music Player Footer -->
+ <footer class="bg-dark text-white fixed-bottom px-3 py-2 shadow-lg">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <img src="images/album/Bruno Mars/silksonic.png" alt="Album Art" style="height: 40px; width: 40px; object-fit: cover; border-radius: 4px; margin-right: 10px;" id="album-cover">
+      <div>
+        <div id="song-title" class="fw-bold">--</div>
+        <div id="song-artist" style="font-size: 0.9rem;">--</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <span id="current-time" class="me-2">0:00</span>
+      <button class="btn btn-sm btn-outline-light me-2" id="prev-btn"><i class="bi bi-skip-backward-fill"></i></button>
+      <button class="btn btn-sm btn-outline-light me-2" id="play-btn"><i class="bi bi-play-fill"></i></button>
+      <button class="btn btn-sm btn-outline-light me-2" id="next-btn"><i class="bi bi-skip-forward-fill"></i></button>
+      <span id="song-duration">0:00</span>
+    </div>
+
+    <!-- Optional Volume Control -->
+    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1" style="width: 100px;" title="Volume" class="d-none d-lg-flex"/>
+  </div>
+
+  <!-- Progress Bar -->
+  <div id="progress-container" class="progress mt-2" style="height: 4px; cursor: pointer;">
+    <div id="progress-bar" class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+  </div>
+
+  <audio id="audio-player" src="" preload="metadata"></audio>
+</footer>
+
+<!-- Song Details Modal -->
+<div class="modal fade" id="songDetailsModal" tabindex="-1" aria-labelledby="songDetailsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sd">
+    <div class="modal-content bg-dark text-white" id="modal-image">
+       <div class="modal-blur-bg"></div>
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="songDetailsLabel">Now Playing</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modal-album-art" src="" class="img-fluid mb-3 rounded" alt="Album Art">
+        <h5 id="modal-song-title">--</h5>
+        <p id="modal-song-artist" class="text-white mb-1">--</p>
+        <small id="modal-song-duration">--</small>
+
+        <div class="mt-3">
+          <button class="btn btn-outline-light btn-sm" id="modal-play-btn">
+            <i class="bi bi-play-fill" id="modal-play-icon"></i>
+          </button>
+        </div>
+                    <!-- Inside .modal-body, below play button -->
+            <div class="mt-4 text-start">
+              <h6 class="text-white">Up Next</h6>
+              <ul id="queue-list" class="list-unstyled overflow-auto" style="max-height: 200px;">
+                <!-- Songs will be injected here -->
+              </ul>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="js/artistData.js"></script>
+  <script src="js/currentPage.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/play1.js"></script>
+ <script src="js/playlist.js"></script>
+ <script src="js/modal_song.js"></script>
+ <script>
+ function generateSongList() {
+  const songListContainer = document.getElementById('song-list');
+
+  // Safety check: Make sure the song-list element exists
+  if (!songListContainer) {
+    console.warn('No song list container found on this page.');
+    return;
+  }
+
+  // Example data
+  const songs = [
+    { title: "Song One", artist: "Artist A", file: "songs/song1.mp3" },
+    { title: "Song Two", artist: "Artist B", file: "songs/song2.mp3" },
+    { title: "Song Three", artist: "Artist C", file: "songs/song3.mp3" }
+  ];
+
+  // Clear existing content
+  songListContainer.innerHTML = '';
+
+  // Create and append each song item
+  songs.forEach(song => {
+    const songDiv = document.createElement('div');
+    songDiv.className = 'song-item';
+    songDiv.innerHTML = `
+      <div><strong>${song.title}</strong> by ${song.artist}</div>
+      <audio controls src="${song.file}" style="width: 100%; margin-top: 5px;"></audio>
+    `;
+    songListContainer.appendChild(songDiv);
+  });
+}
+function generateSongList() {
+  const songListContainer = document.getElementById('song-list');
+
+  // Safety check: Make sure the song-list element exists
+  if (!songListContainer) {
+    console.warn('No song list container found on this page.');
+    return;
+  }
+
+  // Example data
+  const songs = [
+    { title: "Song One", artist: "Artist A", file: "songs/song1.mp3" },
+    { title: "Song Two", artist: "Artist B", file: "songs/song2.mp3" },
+    { title: "Song Three", artist: "Artist C", file: "songs/song3.mp3" }
+  ];
+
+  // Clear existing content
+  songListContainer.innerHTML = '';
+
+  // Create and append each song item
+  songs.forEach(song => {
+    const songDiv = document.createElement('div');
+    songDiv.className = 'song-item';
+    songDiv.innerHTML = `
+      <div><strong>${song.title}</strong> by ${song.artist}</div>
+      <audio controls src="${song.file}" style="width: 100%; margin-top: 5px;"></audio>
+    `;
+    songListContainer.appendChild(songDiv);
+  });
+}
+</script>
+</body>
+
+</html>
